@@ -1,0 +1,10 @@
+compile_commands.json
+.cache/
+build/
+.vscode/
+scripts/reginald/
+
+in
+parse.py
+ds.pdf
+ds.txt
