@@ -3,6 +3,7 @@ map_name: IIS2MDC
 default_register_bitwidth: 8
 
 registers:
+
   OFFSET_X_REG_L:
     adr: 0x45
     reset_val: 0x00
@@ -11,6 +12,7 @@ registers:
       VAL:
         bits: 0-7
         access: [R, W]
+
   OFFSET_X_REG_H:
     adr: 0x46
     reset_val: 0x00
@@ -19,6 +21,7 @@ registers:
       VAL:
         bits: 0-7
         access: [R, W]
+
   OFFSET_Y_REG_L:
     adr: 0x47
     reset_val: 0x00
@@ -27,6 +30,7 @@ registers:
       VAL:
         bits: 0-7
         access: [R, W]
+
   OFFSET_Y_REG_H:
     adr: 0x48
     reset_val: 0x00
@@ -35,6 +39,7 @@ registers:
       VAL:
         bits: 0-7
         access: [R, W]
+
   OFFSET_Z_REG_L:
     adr: 0x49
     reset_val: 0x00
@@ -43,6 +48,7 @@ registers:
       VAL:
         bits: 0-7
         access: [R, W]
+
   OFFSET_Z_REG_H:
     adr: 0x4A
     reset_val: 0x00
@@ -51,6 +57,7 @@ registers:
       VAL:
         bits: 0-7
         access: [R, W]
+
   WHO_AM_I:
     adr: 0x4F
     reset_val: 0x40
@@ -59,6 +66,7 @@ registers:
       ID:
         bits: 0-7
         access: [R]
+
   CFG_REG_A:
     adr: 0x60
     reset_val: 0x03
@@ -98,23 +106,20 @@ registers:
         bits: 4
         access: [R, W]
         brief: Set to 1 to enable low-power mode.
-        enum: enable
       SOFT_RST:
         bits: 5
         access: [R, W]
         brief: Set to 1 to reset. Flash memory content is not affected.
-        enum: enable
       REBOOT:
         bits: 6
         access: [R, W]
         brief: Set to 1 to reboot memory content
-        enum: enable
       COMP_TEMP_EN:
         bits: 7
         access: [R, W]
         brief: Temperature compensation enable. This bit MUST be set to 1 for correct
           operation.
-        enum: enable
+
   CFG_REG_B:
     adr: 0x61
     reset_val: 0x00
@@ -123,12 +128,10 @@ registers:
         bits: 0
         access: [R, W]
         brief: "Low-pass filter enable. BW: ODR/2 when LP=0, BW: ODR/4 when LP=1"
-        enum: enable
       OFF_CANC:
         bits: 1
         access: [R, W]
         brief: Set to 1 to enable offset cancellation in single mode only.
-        enum: enable
       SET_FREQ:
         bits: 2
         access: [R, W]
@@ -143,12 +146,11 @@ registers:
       INT_ON_DATAOFF:
         bits: 3
         brief: If 1, the interrupt block recognition checks data after the hard-iron correction to discover the interrupt (default 0)
-        enum: enable
       OFF_CANC_ONE_SHOT:
         bits: 4
         access: [R, W]
         brief: Enables offset cancellation in single measurement mode. The OFF_CANC bit must be set to 1 when enabling offset cancellation in single measurement mode (default 0)
-        enum: enable
+
   CFG_REG_C:
     adr: 0x62
     reset_val: 0x00
@@ -160,32 +162,27 @@ registers:
         bits: 0
         access: [R, W]
         brief: "If 1, the data-ready signal (Zyxda bit in STATUS_REG (67h)) is driven on the INT/DRDY pin. The INT/DRDY pin is configured in push-pull output mode. Default value: 0"
-        enum: enable
       SELF_TEST:
         bits: 1
         access: [R, W]
         brief: "Self-test enable. Default value: 0"
-        enum: enable
       BLE:
         bits: 3
         access: [R, W]
         brief: "Big/little endian data selection. Default value: 0"
-        enum: enable
       BDU:
         bits: 4
         access: [R, W]
         brief: "Block data update. If enable, grants that high and low parts of the data belong to the same sample. Default value: 0"
-        enum: enable
       I2C_DIS:
         bits: 5
         access: [R, W]
         brief: "Disable I2C interface. If 1, I2C interface is inhibited and only SPI can be used. Default value: 0"
-        enum: enable
       INT_ON_PIN:
         bits: 6
         access: [R, W]
         brief: "If 1, the INTERRUPT signal (INT bit in INT_SOURCE_REG (64h)) is driven on the INT/DRDY pin. The INT/DRDY pin is configured in push-pull output mode. Default value: 0"
-        enum: enable
+
   INT_CTRL_REG:
     adr: 0x63
     reset_val: 0xE0
@@ -197,7 +194,6 @@ registers:
         bits: 0
         access: [R, W]
         brief: "Interrupt enable. Default value: 0"
-        enum: enable
       INT_MODE:
         bits: 1
         access: [R, W]
@@ -224,63 +220,54 @@ registers:
         bits: 5
         access: [R, W]
         brief: "Enable interrupt generation on Z axis. Default value: 1"
-        enum: enable
       INT_Y_EN:
         bits: 6
         access: [R, W]
         brief: "Enable interrupt generation on Y axis. Default value: 1"
-        enum: enable
       INT_X_EN:
         bits: 7
         access: [R, W]
         brief: "Enable interrupt generation on X axis. Default value: 1"
-        enum: enable
+
   INT_SOURCE_REG:
     adr: 0x64
     doc: |
       Interrupt source register.
       @note when interrupt is latched, rall bits are reset upon reading this register.
     fields:
-      INT:
+      INT_ACTIVE:
         bits: 0
         access: [R]
         brief: "Interrupt active. Default value: 0"
-        enum: enable
       MROI:
         bits: 1
         access: [R]
         brief: "Magnetic data overrun. Default value: 0"
-        enum: enable
       NTH_Z:
         bits: 2
         access: [R]
         brief: "Z negative threshold. Default value: 0"
-        enum: enable
       NTH_Y:
         bits: 3
         access: [R]
         brief: "Y negative threshold. Default value: 0"
-        enum: enable
       NTH_X:
         bits: 4
         access: [R]
         brief: "X negative threshold. Default value: 0"
-        enum: enable
       PTH_Z:
         bits: 5
         access: [R]
         brief: "Z positive threshold. Default value: 0"
-        enum: enable
       PTH_Y:
         bits: 6
         access: [R]
         brief: "Y positive threshold. Default value: 0"
-        enum: enable
       PTH_X:
         bits: 7
         access: [R]
         brief: "X positive threshold. Default value: 0"
-        enum: enable
+
   INT_THS_L_REG:
     adr: 0x65
     reset_val: 0x00
@@ -290,6 +277,7 @@ registers:
         bits: 0-7
         access: [R, W]
         brief: "Threshold value. Default value: 0"
+
   INT_THS_H_REG:
     adr: 0x66
     reset_val: 0x00
@@ -299,6 +287,7 @@ registers:
         bits: 0-7
         access: [R, W]
         brief: "Threshold value. Default value: 0"
+
   STATUS_REG:
     adr: 0x67
     fields:
@@ -306,96 +295,87 @@ registers:
         bits: 0
         access: [R]
         brief: "X-axis new data available. Default value: 0"
-        enum: enable
       YDA:
         bits: 1
         access: [R]
         brief: "Y-axis new data available. Default value: 0"
-        enum: enable
       ZDA:
         bits: 2
         access: [R]
         brief: "Z-axis new data available. Default value: 0"
-        enum: enable
       ZYXDA:
         bits: 3
         access: [R]
         brief: "X, Y and Z-axis new data available. Default value: 0"
-        enum: enable
       XOR:
         bits: 4
         access: [R]
         brief: "X-axis data overrun. Default value: 0"
-        enum: enable
       YOR:
         bits: 5
         access: [R]
         brief: "Y-axis data overrun. Default value: 0"
-        enum: enable
       ZOR:
         bits: 6
         access: [R]
         brief: "Z-axis data overrun. Default value: 0"
-        enum: enable
       ZYXOR:
         bits: 7
         access: [R]
         brief: "X, Y and Z-axis data overrun. Default value: 0"
-        enum: enable
+
   OUTX_L_REG:
     adr: 0x68
     fields:
       OUTX:
         bits: 0-7
         access: [R]
+
   OUTX_H_REG:
     adr: 0x69
     fields:
       OUTX:
         bits: 0-7
         access: [R]
+
   OUTY_L_REG:
     adr: 0x6A
     fields:
       OUTY:
         bits: 0-7
         access: [R]
+
   OUTY_H_REG:
     adr: 0x6B
     fields:
       OUTY:
         bits: 0-7
         access: [R]
+
   OUTZ_L_REG:
     adr: 0x6C
     fields:
       OUTZ:
         bits: 0-7
         access: [R]
+
   OUTZ_H_REG:
     adr: 0x6D
     fields:
       OUTZ:
         bits: 0-7
         access: [R]
+
   TEMP_OUT_L_REG:
     adr: 0x6E
     fields:
       TEMP:
         bits: 0-7
         access: [R]
+
   TEMP_OUT_H_REG:
     adr: 0x6F
     fields:
       TEMP:
         bits: 0-7
         access: [R]
-
-shared_enums:
-  enable:
-    brief: On/Off or Enable/Disable
-    enum:
-      OFF:
-        val: 0x0
-      ON:
-        val: 0x1

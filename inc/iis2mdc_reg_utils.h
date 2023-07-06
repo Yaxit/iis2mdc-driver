@@ -586,10 +586,10 @@ static inline uint8_t iis2mdc_pack_cfg_reg_a(const struct iis2mdc_reg_cfg_reg_a 
 static inline void iis2mdc_unpack_cfg_reg_a(struct iis2mdc_reg_cfg_reg_a *r, uint8_t val) {
   r->md = (enum iis2mdc_md)((val & 0x3U) >> 0U);
   r->odr = (enum iis2mdc_odr)((val & 0xCU) >> 2U);
-  r->lp = (enum iis2mdc_enable)((val & 0x10U) >> 4U);
-  r->soft_rst = (enum iis2mdc_enable)((val & 0x20U) >> 5U);
-  r->reboot = (enum iis2mdc_enable)((val & 0x40U) >> 6U);
-  r->comp_temp_en = (enum iis2mdc_enable)((val & 0x80U) >> 7U);
+  r->lp = (uint8_t)((val & 0x10U) >> 4U);
+  r->soft_rst = (uint8_t)((val & 0x20U) >> 5U);
+  r->reboot = (uint8_t)((val & 0x40U) >> 6U);
+  r->comp_temp_en = (uint8_t)((val & 0x80U) >> 7U);
 }
 
 /**
@@ -603,9 +603,8 @@ static inline void iis2mdc_unpack_cfg_reg_a(struct iis2mdc_reg_cfg_reg_a *r, uin
 #define IIS2MDC_UNPACK_CFG_REG_A(_VAL_)                                                                                \
   {                                                                                                                    \
     .md = (enum iis2mdc_md)(((_VAL_)&0x3U) >> 0U), .odr = (enum iis2mdc_odr)(((_VAL_)&0xCU) >> 2U),                    \
-    .lp = (enum iis2mdc_enable)(((_VAL_)&0x10U) >> 4U), .soft_rst = (enum iis2mdc_enable)(((_VAL_)&0x20U) >> 5U),      \
-    .reboot = (enum iis2mdc_enable)(((_VAL_)&0x40U) >> 6U),                                                            \
-    .comp_temp_en = (enum iis2mdc_enable)(((_VAL_)&0x80U) >> 7U),                                                      \
+    .lp = (uint8_t)(((_VAL_)&0x10U) >> 4U), .soft_rst = (uint8_t)(((_VAL_)&0x20U) >> 5U),                              \
+    .reboot = (uint8_t)(((_VAL_)&0x40U) >> 6U), .comp_temp_en = (uint8_t)(((_VAL_)&0x80U) >> 7U),                      \
   }
 
 /** @} */
@@ -650,11 +649,11 @@ static inline uint8_t iis2mdc_pack_cfg_reg_b(const struct iis2mdc_reg_cfg_reg_b 
  * @param val packed register representation
  */
 static inline void iis2mdc_unpack_cfg_reg_b(struct iis2mdc_reg_cfg_reg_b *r, uint8_t val) {
-  r->lpf = (enum iis2mdc_enable)((val & 0x1U) >> 0U);
-  r->off_canc = (enum iis2mdc_enable)((val & 0x2U) >> 1U);
+  r->lpf = (uint8_t)((val & 0x1U) >> 0U);
+  r->off_canc = (uint8_t)((val & 0x2U) >> 1U);
   r->set_freq = (enum iis2mdc_set_freq)((val & 0x4U) >> 2U);
-  r->int_on_dataoff = (enum iis2mdc_enable)((val & 0x8U) >> 3U);
-  r->off_canc_one_shot = (enum iis2mdc_enable)((val & 0x10U) >> 4U);
+  r->int_on_dataoff = (uint8_t)((val & 0x8U) >> 3U);
+  r->off_canc_one_shot = (uint8_t)((val & 0x10U) >> 4U);
 }
 
 /**
@@ -667,10 +666,9 @@ static inline void iis2mdc_unpack_cfg_reg_b(struct iis2mdc_reg_cfg_reg_b *r, uin
  */
 #define IIS2MDC_UNPACK_CFG_REG_B(_VAL_)                                                                                \
   {                                                                                                                    \
-    .lpf = (enum iis2mdc_enable)(((_VAL_)&0x1U) >> 0U), .off_canc = (enum iis2mdc_enable)(((_VAL_)&0x2U) >> 1U),       \
-    .set_freq = (enum iis2mdc_set_freq)(((_VAL_)&0x4U) >> 2U),                                                         \
-    .int_on_dataoff = (enum iis2mdc_enable)(((_VAL_)&0x8U) >> 3U),                                                     \
-    .off_canc_one_shot = (enum iis2mdc_enable)(((_VAL_)&0x10U) >> 4U),                                                 \
+    .lpf = (uint8_t)(((_VAL_)&0x1U) >> 0U), .off_canc = (uint8_t)(((_VAL_)&0x2U) >> 1U),                               \
+    .set_freq = (enum iis2mdc_set_freq)(((_VAL_)&0x4U) >> 2U), .int_on_dataoff = (uint8_t)(((_VAL_)&0x8U) >> 3U),      \
+    .off_canc_one_shot = (uint8_t)(((_VAL_)&0x10U) >> 4U),                                                             \
   }
 
 /** @} */
@@ -718,12 +716,12 @@ static inline uint8_t iis2mdc_pack_cfg_reg_c(const struct iis2mdc_reg_cfg_reg_c 
  * @param val packed register representation
  */
 static inline void iis2mdc_unpack_cfg_reg_c(struct iis2mdc_reg_cfg_reg_c *r, uint8_t val) {
-  r->drdy_on_pin = (enum iis2mdc_enable)((val & 0x1U) >> 0U);
-  r->self_test = (enum iis2mdc_enable)((val & 0x2U) >> 1U);
-  r->ble = (enum iis2mdc_enable)((val & 0x8U) >> 3U);
-  r->bdu = (enum iis2mdc_enable)((val & 0x10U) >> 4U);
-  r->i2c_dis = (enum iis2mdc_enable)((val & 0x20U) >> 5U);
-  r->int_on_pin = (enum iis2mdc_enable)((val & 0x40U) >> 6U);
+  r->drdy_on_pin = (uint8_t)((val & 0x1U) >> 0U);
+  r->self_test = (uint8_t)((val & 0x2U) >> 1U);
+  r->ble = (uint8_t)((val & 0x8U) >> 3U);
+  r->bdu = (uint8_t)((val & 0x10U) >> 4U);
+  r->i2c_dis = (uint8_t)((val & 0x20U) >> 5U);
+  r->int_on_pin = (uint8_t)((val & 0x40U) >> 6U);
 }
 
 /**
@@ -736,10 +734,9 @@ static inline void iis2mdc_unpack_cfg_reg_c(struct iis2mdc_reg_cfg_reg_c *r, uin
  */
 #define IIS2MDC_UNPACK_CFG_REG_C(_VAL_)                                                                                \
   {                                                                                                                    \
-    .drdy_on_pin = (enum iis2mdc_enable)(((_VAL_)&0x1U) >> 0U),                                                        \
-    .self_test = (enum iis2mdc_enable)(((_VAL_)&0x2U) >> 1U), .ble = (enum iis2mdc_enable)(((_VAL_)&0x8U) >> 3U),      \
-    .bdu = (enum iis2mdc_enable)(((_VAL_)&0x10U) >> 4U), .i2c_dis = (enum iis2mdc_enable)(((_VAL_)&0x20U) >> 5U),      \
-    .int_on_pin = (enum iis2mdc_enable)(((_VAL_)&0x40U) >> 6U),                                                        \
+    .drdy_on_pin = (uint8_t)(((_VAL_)&0x1U) >> 0U), .self_test = (uint8_t)(((_VAL_)&0x2U) >> 1U),                      \
+    .ble = (uint8_t)(((_VAL_)&0x8U) >> 3U), .bdu = (uint8_t)(((_VAL_)&0x10U) >> 4U),                                   \
+    .i2c_dis = (uint8_t)(((_VAL_)&0x20U) >> 5U), .int_on_pin = (uint8_t)(((_VAL_)&0x40U) >> 6U),                       \
   }
 
 /** @} */
@@ -787,12 +784,12 @@ static inline uint8_t iis2mdc_pack_int_ctrl_reg(const struct iis2mdc_reg_int_ctr
  * @param val packed register representation
  */
 static inline void iis2mdc_unpack_int_ctrl_reg(struct iis2mdc_reg_int_ctrl_reg *r, uint8_t val) {
-  r->int_en = (enum iis2mdc_enable)((val & 0x1U) >> 0U);
+  r->int_en = (uint8_t)((val & 0x1U) >> 0U);
   r->int_mode = (enum iis2mdc_int_mode)((val & 0x2U) >> 1U);
   r->int_polarity = (enum iis2mdc_int_polarity)((val & 0x4U) >> 2U);
-  r->int_z_en = (enum iis2mdc_enable)((val & 0x20U) >> 5U);
-  r->int_y_en = (enum iis2mdc_enable)((val & 0x40U) >> 6U);
-  r->int_x_en = (enum iis2mdc_enable)((val & 0x80U) >> 7U);
+  r->int_z_en = (uint8_t)((val & 0x20U) >> 5U);
+  r->int_y_en = (uint8_t)((val & 0x40U) >> 6U);
+  r->int_x_en = (uint8_t)((val & 0x80U) >> 7U);
 }
 
 /**
@@ -805,11 +802,9 @@ static inline void iis2mdc_unpack_int_ctrl_reg(struct iis2mdc_reg_int_ctrl_reg *
  */
 #define IIS2MDC_UNPACK_INT_CTRL_REG(_VAL_)                                                                             \
   {                                                                                                                    \
-    .int_en = (enum iis2mdc_enable)(((_VAL_)&0x1U) >> 0U), .int_mode = (enum iis2mdc_int_mode)(((_VAL_)&0x2U) >> 1U),  \
-    .int_polarity = (enum iis2mdc_int_polarity)(((_VAL_)&0x4U) >> 2U),                                                 \
-    .int_z_en = (enum iis2mdc_enable)(((_VAL_)&0x20U) >> 5U),                                                          \
-    .int_y_en = (enum iis2mdc_enable)(((_VAL_)&0x40U) >> 6U),                                                          \
-    .int_x_en = (enum iis2mdc_enable)(((_VAL_)&0x80U) >> 7U),                                                          \
+    .int_en = (uint8_t)(((_VAL_)&0x1U) >> 0U), .int_mode = (enum iis2mdc_int_mode)(((_VAL_)&0x2U) >> 1U),              \
+    .int_polarity = (enum iis2mdc_int_polarity)(((_VAL_)&0x4U) >> 2U), .int_z_en = (uint8_t)(((_VAL_)&0x20U) >> 5U),   \
+    .int_y_en = (uint8_t)(((_VAL_)&0x40U) >> 6U), .int_x_en = (uint8_t)(((_VAL_)&0x80U) >> 7U),                        \
   }
 
 /** @} */
@@ -828,7 +823,7 @@ static inline void iis2mdc_unpack_int_ctrl_reg(struct iis2mdc_reg_int_ctrl_reg *
  * @return packed register representation
  */
 static inline uint8_t iis2mdc_modify_int_source_reg(const struct iis2mdc_reg_int_source_reg *r, uint8_t val) {
-  val = (val & ~0x1U) | (uint8_t)((r->int & 0x1U) << 0U);
+  val = (val & ~0x1U) | (uint8_t)((r->int_active & 0x1U) << 0U);
   val = (val & ~0x2U) | (uint8_t)((r->mroi & 0x1U) << 1U);
   val = (val & ~0x4U) | (uint8_t)((r->nth_z & 0x1U) << 2U);
   val = (val & ~0x8U) | (uint8_t)((r->nth_y & 0x1U) << 3U);
@@ -857,14 +852,14 @@ static inline uint8_t iis2mdc_pack_int_source_reg(const struct iis2mdc_reg_int_s
  * @param val packed register representation
  */
 static inline void iis2mdc_unpack_int_source_reg(struct iis2mdc_reg_int_source_reg *r, uint8_t val) {
-  r->int = (enum iis2mdc_enable)((val & 0x1U) >> 0U);
-  r->mroi = (enum iis2mdc_enable)((val & 0x2U) >> 1U);
-  r->nth_z = (enum iis2mdc_enable)((val & 0x4U) >> 2U);
-  r->nth_y = (enum iis2mdc_enable)((val & 0x8U) >> 3U);
-  r->nth_x = (enum iis2mdc_enable)((val & 0x10U) >> 4U);
-  r->pth_z = (enum iis2mdc_enable)((val & 0x20U) >> 5U);
-  r->pth_y = (enum iis2mdc_enable)((val & 0x40U) >> 6U);
-  r->pth_x = (enum iis2mdc_enable)((val & 0x80U) >> 7U);
+  r->int_active = (uint8_t)((val & 0x1U) >> 0U);
+  r->mroi = (uint8_t)((val & 0x2U) >> 1U);
+  r->nth_z = (uint8_t)((val & 0x4U) >> 2U);
+  r->nth_y = (uint8_t)((val & 0x8U) >> 3U);
+  r->nth_x = (uint8_t)((val & 0x10U) >> 4U);
+  r->pth_z = (uint8_t)((val & 0x20U) >> 5U);
+  r->pth_y = (uint8_t)((val & 0x40U) >> 6U);
+  r->pth_x = (uint8_t)((val & 0x80U) >> 7U);
 }
 
 /**
@@ -877,10 +872,10 @@ static inline void iis2mdc_unpack_int_source_reg(struct iis2mdc_reg_int_source_r
  */
 #define IIS2MDC_UNPACK_INT_SOURCE_REG(_VAL_)                                                                           \
   {                                                                                                                    \
-    .int = (enum iis2mdc_enable)(((_VAL_)&0x1U) >> 0U), .mroi = (enum iis2mdc_enable)(((_VAL_)&0x2U) >> 1U),           \
-    .nth_z = (enum iis2mdc_enable)(((_VAL_)&0x4U) >> 2U), .nth_y = (enum iis2mdc_enable)(((_VAL_)&0x8U) >> 3U),        \
-    .nth_x = (enum iis2mdc_enable)(((_VAL_)&0x10U) >> 4U), .pth_z = (enum iis2mdc_enable)(((_VAL_)&0x20U) >> 5U),      \
-    .pth_y = (enum iis2mdc_enable)(((_VAL_)&0x40U) >> 6U), .pth_x = (enum iis2mdc_enable)(((_VAL_)&0x80U) >> 7U),      \
+    .int_active = (uint8_t)(((_VAL_)&0x1U) >> 0U), .mroi = (uint8_t)(((_VAL_)&0x2U) >> 1U),                            \
+    .nth_z = (uint8_t)(((_VAL_)&0x4U) >> 2U), .nth_y = (uint8_t)(((_VAL_)&0x8U) >> 3U),                                \
+    .nth_x = (uint8_t)(((_VAL_)&0x10U) >> 4U), .pth_z = (uint8_t)(((_VAL_)&0x20U) >> 5U),                              \
+    .pth_y = (uint8_t)(((_VAL_)&0x40U) >> 6U), .pth_x = (uint8_t)(((_VAL_)&0x80U) >> 7U),                              \
   }
 
 /** @} */
@@ -1032,14 +1027,14 @@ static inline uint8_t iis2mdc_pack_status_reg(const struct iis2mdc_reg_status_re
  * @param val packed register representation
  */
 static inline void iis2mdc_unpack_status_reg(struct iis2mdc_reg_status_reg *r, uint8_t val) {
-  r->xda = (enum iis2mdc_enable)((val & 0x1U) >> 0U);
-  r->yda = (enum iis2mdc_enable)((val & 0x2U) >> 1U);
-  r->zda = (enum iis2mdc_enable)((val & 0x4U) >> 2U);
-  r->zyxda = (enum iis2mdc_enable)((val & 0x8U) >> 3U);
-  r->xor = (enum iis2mdc_enable)((val & 0x10U) >> 4U);
-  r->yor = (enum iis2mdc_enable)((val & 0x20U) >> 5U);
-  r->zor = (enum iis2mdc_enable)((val & 0x40U) >> 6U);
-  r->zyxor = (enum iis2mdc_enable)((val & 0x80U) >> 7U);
+  r->xda = (uint8_t)((val & 0x1U) >> 0U);
+  r->yda = (uint8_t)((val & 0x2U) >> 1U);
+  r->zda = (uint8_t)((val & 0x4U) >> 2U);
+  r->zyxda = (uint8_t)((val & 0x8U) >> 3U);
+  r->xor = (uint8_t)((val & 0x10U) >> 4U);
+  r->yor = (uint8_t)((val & 0x20U) >> 5U);
+  r->zor = (uint8_t)((val & 0x40U) >> 6U);
+  r->zyxor = (uint8_t)((val & 0x80U) >> 7U);
 }
 
 /**
@@ -1052,10 +1047,10 @@ static inline void iis2mdc_unpack_status_reg(struct iis2mdc_reg_status_reg *r, u
  */
 #define IIS2MDC_UNPACK_STATUS_REG(_VAL_)                                                                               \
   {                                                                                                                    \
-    .xda = (enum iis2mdc_enable)(((_VAL_)&0x1U) >> 0U), .yda = (enum iis2mdc_enable)(((_VAL_)&0x2U) >> 1U),            \
-    .zda = (enum iis2mdc_enable)(((_VAL_)&0x4U) >> 2U), .zyxda = (enum iis2mdc_enable)(((_VAL_)&0x8U) >> 3U),          \
-    .xor = (enum iis2mdc_enable)(((_VAL_)&0x10U) >> 4U), .yor = (enum iis2mdc_enable)(((_VAL_)&0x20U) >> 5U),          \
-    .zor = (enum iis2mdc_enable)(((_VAL_)&0x40U) >> 6U), .zyxor = (enum iis2mdc_enable)(((_VAL_)&0x80U) >> 7U),        \
+    .xda = (uint8_t)(((_VAL_)&0x1U) >> 0U), .yda = (uint8_t)(((_VAL_)&0x2U) >> 1U),                                    \
+    .zda = (uint8_t)(((_VAL_)&0x4U) >> 2U), .zyxda = (uint8_t)(((_VAL_)&0x8U) >> 3U),                                  \
+    .xor = (uint8_t)(((_VAL_)&0x10U) >> 4U), .yor = (uint8_t)(((_VAL_)&0x20U) >> 5U),                                  \
+    .zor = (uint8_t)(((_VAL_)&0x40U) >> 6U), .zyxor = (uint8_t)(((_VAL_)&0x80U) >> 7U),                                \
   }
 
 /** @} */

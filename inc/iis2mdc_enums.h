@@ -9,12 +9,6 @@
 
 // ==== Shared Enums ===========================================================
 
-/** @brief On/Off or Enable/Disable */
-enum iis2mdc_enable {
-  IIS2MDC_ENABLE_FALSE = 0x0U,
-  IIS2MDC_ENABLE_TRUE = 0x1U,
-};
-
 // ==== CFG_REG_A Enums ========================================================
 
 /** @brief Operating mode selection. */

@@ -159,13 +159,13 @@ struct iis2mdc_reg_cfg_reg_a {
   /** @brief Output data rate selection. */
   enum iis2mdc_odr odr : 2;
   /** @brief Set to 1 to enable low-power mode. */
-  enum iis2mdc_enable lp : 1;
+  uint8_t lp : 1;
   /** @brief Set to 1 to reset. Flash memory content is not affected. */
-  enum iis2mdc_enable soft_rst : 1;
+  uint8_t soft_rst : 1;
   /** @brief Set to 1 to reboot memory content */
-  enum iis2mdc_enable reboot : 1;
+  uint8_t reboot : 1;
   /** @brief Temperature compensation enable. This bit MUST be set to 1 for correct operation. */
-  enum iis2mdc_enable comp_temp_en : 1;
+  uint8_t comp_temp_en : 1;
 };
 
 // ==== CFG_REG_B ==============================================================
@@ -180,17 +180,17 @@ struct iis2mdc_reg_cfg_reg_a {
  */
 struct iis2mdc_reg_cfg_reg_b {
   /** @brief Low-pass filter enable. BW: ODR/2 when LP=0, BW: ODR/4 when LP=1 */
-  enum iis2mdc_enable lpf : 1;
+  uint8_t lpf : 1;
   /** @brief Set to 1 to enable offset cancellation in single mode only. */
-  enum iis2mdc_enable off_canc : 1;
+  uint8_t off_canc : 1;
   /** @brief Selects the frequency of the set pulse (default 0). */
   enum iis2mdc_set_freq set_freq : 1;
   /** @brief If 1, the interrupt block recognition checks data after the hard-iron correction to discover the interrupt
    * (default 0) */
-  enum iis2mdc_enable int_on_dataoff : 1;
+  uint8_t int_on_dataoff : 1;
   /** @brief Enables offset cancellation in single measurement mode. The OFF_CANC bit must be set to 1 when enabling
    * offset cancellation in single measurement mode (default 0) */
-  enum iis2mdc_enable off_canc_one_shot : 1;
+  uint8_t off_canc_one_shot : 1;
 };
 
 // ==== CFG_REG_C ==============================================================
@@ -209,19 +209,19 @@ struct iis2mdc_reg_cfg_reg_b {
 struct iis2mdc_reg_cfg_reg_c {
   /** @brief If 1, the data-ready signal (Zyxda bit in STATUS_REG (67h)) is driven on the INT/DRDY pin. The INT/DRDY pin
    * is configured in push-pull output mode. Default value: 0 */
-  enum iis2mdc_enable drdy_on_pin : 1;
+  uint8_t drdy_on_pin : 1;
   /** @brief Self-test enable. Default value: 0 */
-  enum iis2mdc_enable self_test : 1;
+  uint8_t self_test : 1;
   /** @brief Big/little endian data selection. Default value: 0 */
-  enum iis2mdc_enable ble : 1;
+  uint8_t ble : 1;
   /** @brief Block data update. If enable, grants that high and low parts of the data belong to the same sample. Default
    * value: 0 */
-  enum iis2mdc_enable bdu : 1;
+  uint8_t bdu : 1;
   /** @brief Disable I2C interface. If 1, I2C interface is inhibited and only SPI can be used. Default value: 0 */
-  enum iis2mdc_enable i2c_dis : 1;
+  uint8_t i2c_dis : 1;
   /** @brief If 1, the INTERRUPT signal (INT bit in INT_SOURCE_REG (64h)) is driven on the INT/DRDY pin. The INT/DRDY
    * pin is configured in push-pull output mode. Default value: 0 */
-  enum iis2mdc_enable int_on_pin : 1;
+  uint8_t int_on_pin : 1;
 };
 
 // ==== INT_CTRL_REG ===========================================================
@@ -239,17 +239,17 @@ struct iis2mdc_reg_cfg_reg_c {
  */
 struct iis2mdc_reg_int_ctrl_reg {
   /** @brief Interrupt enable. Default value: 0 */
-  enum iis2mdc_enable int_en : 1;
+  uint8_t int_en : 1;
   /** @brief Configures interrupt in pulsed or latched configuration */
   enum iis2mdc_int_mode int_mode : 1;
   /** @brief Interrupt active-high/low. Default value: 0 */
   enum iis2mdc_int_polarity int_polarity : 1;
   /** @brief Enable interrupt generation on Z axis. Default value: 1 */
-  enum iis2mdc_enable int_z_en : 1;
+  uint8_t int_z_en : 1;
   /** @brief Enable interrupt generation on Y axis. Default value: 1 */
-  enum iis2mdc_enable int_y_en : 1;
+  uint8_t int_y_en : 1;
   /** @brief Enable interrupt generation on X axis. Default value: 1 */
-  enum iis2mdc_enable int_x_en : 1;
+  uint8_t int_x_en : 1;
 };
 
 // ==== INT_SOURCE_REG =========================================================
@@ -263,21 +263,21 @@ struct iis2mdc_reg_int_ctrl_reg {
  */
 struct iis2mdc_reg_int_source_reg {
   /** @brief Interrupt active. Default value: 0 */
-  enum iis2mdc_enable int : 1;
+  uint8_t int_active : 1;
   /** @brief Magnetic data overrun. Default value: 0 */
-  enum iis2mdc_enable mroi : 1;
+  uint8_t mroi : 1;
   /** @brief Z negative threshold. Default value: 0 */
-  enum iis2mdc_enable nth_z : 1;
+  uint8_t nth_z : 1;
   /** @brief Y negative threshold. Default value: 0 */
-  enum iis2mdc_enable nth_y : 1;
+  uint8_t nth_y : 1;
   /** @brief X negative threshold. Default value: 0 */
-  enum iis2mdc_enable nth_x : 1;
+  uint8_t nth_x : 1;
   /** @brief Z positive threshold. Default value: 0 */
-  enum iis2mdc_enable pth_z : 1;
+  uint8_t pth_z : 1;
   /** @brief Y positive threshold. Default value: 0 */
-  enum iis2mdc_enable pth_y : 1;
+  uint8_t pth_y : 1;
   /** @brief X positive threshold. Default value: 0 */
-  enum iis2mdc_enable pth_x : 1;
+  uint8_t pth_x : 1;
 };
 
 // ==== INT_THS_L_REG ==========================================================
@@ -322,21 +322,21 @@ struct iis2mdc_reg_int_ths_h_reg {
  */
 struct iis2mdc_reg_status_reg {
   /** @brief X-axis new data available. Default value: 0 */
-  enum iis2mdc_enable xda : 1;
+  uint8_t xda : 1;
   /** @brief Y-axis new data available. Default value: 0 */
-  enum iis2mdc_enable yda : 1;
+  uint8_t yda : 1;
   /** @brief Z-axis new data available. Default value: 0 */
-  enum iis2mdc_enable zda : 1;
+  uint8_t zda : 1;
   /** @brief X, Y and Z-axis new data available. Default value: 0 */
-  enum iis2mdc_enable zyxda : 1;
+  uint8_t zyxda : 1;
   /** @brief X-axis data overrun. Default value: 0 */
-  enum iis2mdc_enable xor : 1;
+  uint8_t xor : 1;
   /** @brief Y-axis data overrun. Default value: 0 */
-  enum iis2mdc_enable yor : 1;
+  uint8_t yor : 1;
   /** @brief Z-axis data overrun. Default value: 0 */
-  enum iis2mdc_enable zor : 1;
+  uint8_t zor : 1;
   /** @brief X, Y and Z-axis data overrun. Default value: 0 */
-  enum iis2mdc_enable zyxor : 1;
+  uint8_t zyxor : 1;
 };
 
 // ==== OUTX_L_REG =============================================================
