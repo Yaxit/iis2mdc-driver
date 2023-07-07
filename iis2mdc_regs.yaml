@@ -132,7 +132,7 @@ registers:
         bits: 1
         access: [R, W]
         brief: Set to 1 to enable offset cancellation in single mode only.
-      SET_FREQ:
+      SET_PULSE_FREQ:
         bits: 2
         access: [R, W]
         brief: Selects the frequency of the set pulse (default 0).

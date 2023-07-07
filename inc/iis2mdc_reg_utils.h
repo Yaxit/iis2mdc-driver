@@ -625,7 +625,7 @@ static inline void iis2mdc_unpack_cfg_reg_a(struct iis2mdc_reg_cfg_reg_a *r, uin
 static inline uint8_t iis2mdc_modify_cfg_reg_b(const struct iis2mdc_reg_cfg_reg_b *r, uint8_t val) {
   val = (val & ~0x1U) | (uint8_t)((r->lpf & 0x1U) << 0U);
   val = (val & ~0x2U) | (uint8_t)((r->off_canc & 0x1U) << 1U);
-  val = (val & ~0x4U) | (uint8_t)((r->set_freq & 0x1U) << 2U);
+  val = (val & ~0x4U) | (uint8_t)((r->set_pulse_freq & 0x1U) << 2U);
   val = (val & ~0x8U) | (uint8_t)((r->int_on_dataoff & 0x1U) << 3U);
   val = (val & ~0x10U) | (uint8_t)((r->off_canc_one_shot & 0x1U) << 4U);
   return val;
@@ -651,7 +651,7 @@ static inline uint8_t iis2mdc_pack_cfg_reg_b(const struct iis2mdc_reg_cfg_reg_b 
 static inline void iis2mdc_unpack_cfg_reg_b(struct iis2mdc_reg_cfg_reg_b *r, uint8_t val) {
   r->lpf = (uint8_t)((val & 0x1U) >> 0U);
   r->off_canc = (uint8_t)((val & 0x2U) >> 1U);
-  r->set_freq = (enum iis2mdc_set_freq)((val & 0x4U) >> 2U);
+  r->set_pulse_freq = (enum iis2mdc_set_pulse_freq)((val & 0x4U) >> 2U);
   r->int_on_dataoff = (uint8_t)((val & 0x8U) >> 3U);
   r->off_canc_one_shot = (uint8_t)((val & 0x10U) >> 4U);
 }
@@ -667,8 +667,8 @@ static inline void iis2mdc_unpack_cfg_reg_b(struct iis2mdc_reg_cfg_reg_b *r, uin
 #define IIS2MDC_UNPACK_CFG_REG_B(_VAL_)                                                                                \
   {                                                                                                                    \
     .lpf = (uint8_t)(((_VAL_)&0x1U) >> 0U), .off_canc = (uint8_t)(((_VAL_)&0x2U) >> 1U),                               \
-    .set_freq = (enum iis2mdc_set_freq)(((_VAL_)&0x4U) >> 2U), .int_on_dataoff = (uint8_t)(((_VAL_)&0x8U) >> 3U),      \
-    .off_canc_one_shot = (uint8_t)(((_VAL_)&0x10U) >> 4U),                                                             \
+    .set_pulse_freq = (enum iis2mdc_set_pulse_freq)(((_VAL_)&0x4U) >> 2U),                                             \
+    .int_on_dataoff = (uint8_t)(((_VAL_)&0x8U) >> 3U), .off_canc_one_shot = (uint8_t)(((_VAL_)&0x10U) >> 4U),          \
   }
 
 /** @} */

@@ -184,7 +184,7 @@ struct iis2mdc_reg_cfg_reg_b {
   /** @brief Set to 1 to enable offset cancellation in single mode only. */
   uint8_t off_canc : 1;
   /** @brief Selects the frequency of the set pulse (default 0). */
-  enum iis2mdc_set_freq set_freq : 1;
+  enum iis2mdc_set_pulse_freq set_pulse_freq : 1;
   /** @brief If 1, the interrupt block recognition checks data after the hard-iron correction to discover the interrupt
    * (default 0) */
   uint8_t int_on_dataoff : 1;

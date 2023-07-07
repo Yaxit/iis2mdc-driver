@@ -36,11 +36,11 @@ enum iis2mdc_odr {
 // ==== CFG_REG_B Enums ========================================================
 
 /** @brief Selects the frequency of the set pulse (default 0). */
-enum iis2mdc_set_freq {
+enum iis2mdc_set_pulse_freq {
   /** @brief Set pulse released every 63 ODR. */
-  IIS2MDC_SET_FREQ_63_ODR = 0x0U,
+  IIS2MDC_SET_PULSE_FREQ_63_ODR = 0x0U,
   /** @brief Set pulse released only at power on, after PD condition */
-  IIS2MDC_SET_FREQ_PD = 0x1U,
+  IIS2MDC_SET_PULSE_FREQ_PD = 0x1U,
 };
 
 // ==== INT_CTRL_REG Enums =====================================================
