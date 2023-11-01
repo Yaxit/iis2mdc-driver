@@ -1,4 +1,4 @@
-# IS31FL3194 Driver
+# IIS2MDC Driver
 
 Andrea Ronco
 PBL, D-ITET, ETH Zürich
