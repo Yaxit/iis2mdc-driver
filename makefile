@@ -53,9 +53,10 @@ doc:
 	firefox doc/html/index.html
 
 # Generate register header files using reginald:
-inc/iis2mdc_regs.h inc/iis2mdc_enums.h inc/iis2mdc_reg_utils.h &: iis2mdc_regs.yaml $(REGINALD)
+.PHONY: $(REGINALD_OUTPUT_FILES)
+$(REGINALD_OUTPUT_FILES) &: iis2mdc_regs.yaml $(REGINALD)
 	$(SILENT) $(REGINALD_PYTHON) $(REGINALD) iis2mdc_regs.yaml c.funcpack inc/ --no-field-enum-prefix
-	$(SILENT) clang-format -i -style=file inc/iis2mdc_regs.h inc/iis2mdc_enums.h inc/iis2mdc_reg_utils.h
+	$(SILENT) clang-format -i -style=file $(REGINALD_OUTPUT_FILES)
 
 # Setup the correct version of reginald:
 $(REGINALD): | $(REGINALD_REPO)
