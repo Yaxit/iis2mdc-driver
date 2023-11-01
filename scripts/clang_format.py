@@ -5,10 +5,10 @@ from os import listdir
 from os.path import isfile, join
 
 # Folders in which to search for files non-recursively
-source_folders = ['test']
+source_folders = []
 
 # Folders in which to search for files recursively
-source_folder_roots = ['src', 'inc', 'zephyr']
+source_folder_roots = ['src', 'inc']
 
 # File extensions to format
 extensions = ['.c', '.h']
