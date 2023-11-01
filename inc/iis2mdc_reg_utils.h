@@ -19,47 +19,47 @@
  */
 static inline int iis2mdc_lookup_resetval(uint8_t adr, uint8_t *val) {
   switch (adr) {
-    case IIS2MDC_REG_OFFSET_X_REG_L:
-      *val = IIS2MDC_REG_OFFSET_X_REG_L__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_OFFSET_X_REG_H:
-      *val = IIS2MDC_REG_OFFSET_X_REG_H__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_OFFSET_Y_REG_L:
-      *val = IIS2MDC_REG_OFFSET_Y_REG_L__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_OFFSET_Y_REG_H:
-      *val = IIS2MDC_REG_OFFSET_Y_REG_H__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_OFFSET_Z_REG_L:
-      *val = IIS2MDC_REG_OFFSET_Z_REG_L__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_OFFSET_Z_REG_H:
-      *val = IIS2MDC_REG_OFFSET_Z_REG_H__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_WHO_AM_I:
-      *val = IIS2MDC_REG_WHO_AM_I__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_CFG_REG_A:
-      *val = IIS2MDC_REG_CFG_REG_A__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_CFG_REG_B:
-      *val = IIS2MDC_REG_CFG_REG_B__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_CFG_REG_C:
-      *val = IIS2MDC_REG_CFG_REG_C__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_INT_CTRL_REG:
-      *val = IIS2MDC_REG_INT_CTRL_REG__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_INT_THS_L_REG:
-      *val = IIS2MDC_REG_INT_THS_L_REG__RESETVAL;
-      return 1;
-    case IIS2MDC_REG_INT_THS_H_REG:
-      *val = IIS2MDC_REG_INT_THS_H_REG__RESETVAL;
-      return 1;
-    default:
-      return 0;
+  case IIS2MDC_REG_OFFSET_X_REG_L:
+    *val = IIS2MDC_REG_OFFSET_X_REG_L__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_OFFSET_X_REG_H:
+    *val = IIS2MDC_REG_OFFSET_X_REG_H__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_OFFSET_Y_REG_L:
+    *val = IIS2MDC_REG_OFFSET_Y_REG_L__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_OFFSET_Y_REG_H:
+    *val = IIS2MDC_REG_OFFSET_Y_REG_H__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_OFFSET_Z_REG_L:
+    *val = IIS2MDC_REG_OFFSET_Z_REG_L__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_OFFSET_Z_REG_H:
+    *val = IIS2MDC_REG_OFFSET_Z_REG_H__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_WHO_AM_I:
+    *val = IIS2MDC_REG_WHO_AM_I__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_CFG_REG_A:
+    *val = IIS2MDC_REG_CFG_REG_A__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_CFG_REG_B:
+    *val = IIS2MDC_REG_CFG_REG_B__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_CFG_REG_C:
+    *val = IIS2MDC_REG_CFG_REG_C__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_INT_CTRL_REG:
+    *val = IIS2MDC_REG_INT_CTRL_REG__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_INT_THS_L_REG:
+    *val = IIS2MDC_REG_INT_THS_L_REG__RESETVAL;
+    return 1;
+  case IIS2MDC_REG_INT_THS_H_REG:
+    *val = IIS2MDC_REG_INT_THS_H_REG__RESETVAL;
+    return 1;
+  default:
+    return 0;
   }
 }
 

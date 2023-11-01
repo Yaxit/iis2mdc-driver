@@ -23,11 +23,11 @@
   (0x49U) //!< OFFSET_Z_REG_L Address (16bit two's complement offset to compensate environmental/board effects.)
 #define IIS2MDC_REG_OFFSET_Z_REG_H                                                                                     \
   (0x4AU) //!< OFFSET_Z_REG_H Address (16bit two's complement offset to compensate environmental/board effects.)
-#define IIS2MDC_REG_WHO_AM_I       (0x4FU) //!< WHO_AM_I Address (Device identification register.)
-#define IIS2MDC_REG_CFG_REG_A      (0x60U) //!< CFG_REG_A Address
-#define IIS2MDC_REG_CFG_REG_B      (0x61U) //!< CFG_REG_B Address
-#define IIS2MDC_REG_CFG_REG_C      (0x62U) //!< CFG_REG_C Address
-#define IIS2MDC_REG_INT_CTRL_REG   (0x63U) //!< INT_CTRL_REG Address
+#define IIS2MDC_REG_WHO_AM_I (0x4FU)       //!< WHO_AM_I Address (Device identification register.)
+#define IIS2MDC_REG_CFG_REG_A (0x60U)      //!< CFG_REG_A Address
+#define IIS2MDC_REG_CFG_REG_B (0x61U)      //!< CFG_REG_B Address
+#define IIS2MDC_REG_CFG_REG_C (0x62U)      //!< CFG_REG_C Address
+#define IIS2MDC_REG_INT_CTRL_REG (0x63U)   //!< INT_CTRL_REG Address
 #define IIS2MDC_REG_INT_SOURCE_REG (0x64U) //!< INT_SOURCE_REG Address
 #define IIS2MDC_REG_INT_THS_L_REG                                                                                      \
   (0x65U) //!< INT_THS_L_REG Address (This register contains the least significant bits of the threshold value chosen
@@ -35,13 +35,13 @@
 #define IIS2MDC_REG_INT_THS_H_REG                                                                                      \
   (0x66U) //!< INT_THS_H_REG Address (This register contains the most significant bits of the threshold value chosen for
           //!< the interrupt. Threshold is common for all axes, and both positive and negative sides.)
-#define IIS2MDC_REG_STATUS_REG     (0x67U) //!< STATUS_REG Address
-#define IIS2MDC_REG_OUTX_L_REG     (0x68U) //!< OUTX_L_REG Address
-#define IIS2MDC_REG_OUTX_H_REG     (0x69U) //!< OUTX_H_REG Address
-#define IIS2MDC_REG_OUTY_L_REG     (0x6AU) //!< OUTY_L_REG Address
-#define IIS2MDC_REG_OUTY_H_REG     (0x6BU) //!< OUTY_H_REG Address
-#define IIS2MDC_REG_OUTZ_L_REG     (0x6CU) //!< OUTZ_L_REG Address
-#define IIS2MDC_REG_OUTZ_H_REG     (0x6DU) //!< OUTZ_H_REG Address
+#define IIS2MDC_REG_STATUS_REG (0x67U)     //!< STATUS_REG Address
+#define IIS2MDC_REG_OUTX_L_REG (0x68U)     //!< OUTX_L_REG Address
+#define IIS2MDC_REG_OUTX_H_REG (0x69U)     //!< OUTX_H_REG Address
+#define IIS2MDC_REG_OUTY_L_REG (0x6AU)     //!< OUTY_L_REG Address
+#define IIS2MDC_REG_OUTY_H_REG (0x6BU)     //!< OUTY_H_REG Address
+#define IIS2MDC_REG_OUTZ_L_REG (0x6CU)     //!< OUTZ_L_REG Address
+#define IIS2MDC_REG_OUTZ_H_REG (0x6DU)     //!< OUTZ_H_REG Address
 #define IIS2MDC_REG_TEMP_OUT_L_REG (0x6EU) //!< TEMP_OUT_L_REG Address
 #define IIS2MDC_REG_TEMP_OUT_H_REG (0x6FU) //!< TEMP_OUT_H_REG Address
 
@@ -198,7 +198,7 @@ struct iis2mdc_reg_cfg_reg_b {
 #define IIS2MDC_REG_CFG_REG_C__RESETVAL (0x0U) //!< CFG_REG_C Reset Value
 
 #define IIS2MDC_REG_CFG_REG_C__ALWAYSWRITE_MASK (0x84U) //!< CFG_REG_C Always Write Mask
-#define IIS2MDC_REG_CFG_REG_C__ALWAYSWRITE_VAL  (0x0U)  //!< CFG_REG_C Always Write Value
+#define IIS2MDC_REG_CFG_REG_C__ALWAYSWRITE_VAL (0x0U)   //!< CFG_REG_C Always Write Value
 
 /**
  * @brief CFG_REG_C Register Struct
@@ -229,7 +229,7 @@ struct iis2mdc_reg_cfg_reg_c {
 #define IIS2MDC_REG_INT_CTRL_REG__RESETVAL (0xE0U) //!< INT_CTRL_REG Reset Value
 
 #define IIS2MDC_REG_INT_CTRL_REG__ALWAYSWRITE_MASK (0x18U) //!< INT_CTRL_REG Always Write Mask
-#define IIS2MDC_REG_INT_CTRL_REG__ALWAYSWRITE_VAL  (0x0U)  //!< INT_CTRL_REG Always Write Value
+#define IIS2MDC_REG_INT_CTRL_REG__ALWAYSWRITE_VAL (0x0U)   //!< INT_CTRL_REG Always Write Value
 
 /**
  * @brief INT_CTRL_REG Register Struct
