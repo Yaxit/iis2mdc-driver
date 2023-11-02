@@ -1,11 +1,11 @@
 #ifndef IIS2MDC_H
 #define IIS2MDC_H
 
-#include <stdint.h>
-#include <stdbool.h>
 #include "iis2mdc_enums.h"
-#include "iis2mdc_regs.h"
 #include "iis2mdc_reg_utils.h"
+#include "iis2mdc_regs.h"
+#include <stdbool.h>
+#include <stdint.h>
 
 // ======== General Definitions ================================================
 
@@ -33,67 +33,67 @@ struct iis2mdc_offset_cfg {
 
 /** @brief Device configuration */
 struct iis2mdc_cfg {
-    //CFG_A
-    /** @brief Magnetic sensor operating mode */
-    enum iis2mdc_md op_mode;
-    /** @brief Magnetic sensor output data rate */
-    enum iis2mdc_odr odr;
-    /** @brief Enable Low power mode */
-    bool low_power_en;
-    /** @brief Soft-Reset sensor */
-    bool soft_rst;
-    /** @brief Reboot sensor */
-    bool reboot;
-    /** @brief Enable sensor temperature compensation */
-    bool comp_temp_en;
+  // CFG_A
+  /** @brief Magnetic sensor operating mode */
+  enum iis2mdc_md op_mode;
+  /** @brief Magnetic sensor output data rate */
+  enum iis2mdc_odr odr;
+  /** @brief Enable Low power mode */
+  bool low_power_en;
+  /** @brief Soft-Reset sensor */
+  bool soft_rst;
+  /** @brief Reboot sensor */
+  bool reboot;
+  /** @brief Enable sensor temperature compensation */
+  bool comp_temp_en;
 
-    //CFG_B
-    /** @brief Enable low-pass filter */
-    bool lpf_en;
-    /** @brief Enable hard-iron offset cancellation */
-    bool offset_cancel_en;
-    /** @brief Set-pulse signal is realeased only on power-on (instead of every 63 ODR)*/
-    bool set_pulse_only_power_on;
-    /** @brief Interrupt block checks for conditions after the offset is applied */
-    bool int_after_offset;
-    /** @brief Enable offset cancellation for one-shot mode */
-    bool offset_cancel_one_shot_en;
+  // CFG_B
+  /** @brief Enable low-pass filter */
+  bool lpf_en;
+  /** @brief Enable hard-iron offset cancellation */
+  bool offset_cancel_en;
+  /** @brief Set-pulse signal is realeased only on power-on (instead of every 63 ODR)*/
+  bool set_pulse_only_power_on;
+  /** @brief Interrupt block checks for conditions after the offset is applied */
+  bool int_after_offset;
+  /** @brief Enable offset cancellation for one-shot mode */
+  bool offset_cancel_one_shot_en;
 
-    //CFG_C
-    /** @brief Enable self-test */
-    bool self_test_en;
-    /** @brief Invert byte order of output data */
-    bool byte_order_invert;
-    /** @brief If true, tried to prevent race conditions when data is read while the sensor updates it */
-    bool latch_data;
-    /** @brief Disable I2C interface, only SPI is supported */
-    bool i2c_disable;
+  // CFG_C
+  /** @brief Enable self-test */
+  bool self_test_en;
+  /** @brief Invert byte order of output data */
+  bool byte_order_invert;
+  /** @brief If true, tried to prevent race conditions when data is read while the sensor updates it */
+  bool latch_data;
+  /** @brief Disable I2C interface, only SPI is supported */
+  bool i2c_disable;
 };
 
 /** @brief Device interrupt configuration */
 struct iis2mdc_int_cfg {
-    //CFG_C
-    /** @brief Enable interrupt generation on data ready */
-    bool drdy_on_pin;
-    /** @brief Enable interrupt generation on magnetic field conditions */
-    bool int_on_pin;
+  // CFG_C
+  /** @brief Enable interrupt generation on data ready */
+  bool drdy_on_pin;
+  /** @brief Enable interrupt generation on magnetic field conditions */
+  bool int_on_pin;
 
-    //INT_CRTL
-    /** @brief Global interrupt enable */
-    bool int_en;
-    /** @brief Interrupt latched or pulsed */
-    bool int_latched;
-    /** @brief Interrupt active high */
-    bool int_active_high;
-    /** @brief Interrupt detection for x axis enabled */
-    bool int_x_en;
-    /** @brief Interrupt detection for y axis enabled */
-    bool int_y_en;
-    /** @brief Interrupt detection for z axis enabled */
-    bool int_z_en;
+  // INT_CRTL
+  /** @brief Global interrupt enable */
+  bool int_en;
+  /** @brief Interrupt latched or pulsed */
+  bool int_latched;
+  /** @brief Interrupt active high */
+  bool int_active_high;
+  /** @brief Interrupt detection for x axis enabled */
+  bool int_x_en;
+  /** @brief Interrupt detection for y axis enabled */
+  bool int_y_en;
+  /** @brief Interrupt detection for z axis enabled */
+  bool int_z_en;
 
-    /** @brief Interrupt threshold. Value is common for all three axes. Unsigned (it is absolute value) */
-    uint16_t int_threshold;
+  /** @brief Interrupt threshold. Value is common for all three axes. Unsigned (it is absolute value) */
+  uint16_t int_threshold;
 };
 
 // ======== Handle Definition ==================================================
@@ -142,8 +142,7 @@ struct iis2mdc_h {
    * @param has_int_arg indicates if this message is accompanied by an integer variable to log.
    * @param arg the integer variable to log if has_int_arg is true.
    */
-//   void (*log)(char *msg, bool is_err, bool has_int_arg, uint32_t arg);
-
+  //   void (*log)(char *msg, bool is_err, bool has_int_arg, uint32_t arg);
 };
 
 // ======== Function Prototypes ================================================
@@ -153,7 +152,7 @@ struct iis2mdc_h {
  *
  * @param h Device handle
  * @return @ref E_IIS2MDC_SUCCESS if reset was successful, otherwise an error code from @ref E_IIS2MDC_COM_ERR.
-*/
+ */
 iis2mdc_err_t iis2mdc_reset(const struct iis2mdc_h *h);
 
 /**
@@ -162,7 +161,7 @@ iis2mdc_err_t iis2mdc_reset(const struct iis2mdc_h *h);
  * @param h Device handle
  * @param cfg Device configuration
  * @return @ref E_IIS2MDC_SUCCESS if initialization was successful, otherwise an error code from @ref E_IIS2MDC_COM_ERR.
-*/
+ */
 iis2mdc_err_t iis2mdc_init(const struct iis2mdc_h *h, const struct iis2mdc_cfg *cfg);
 
 /**
@@ -172,7 +171,7 @@ iis2mdc_err_t iis2mdc_init(const struct iis2mdc_h *h, const struct iis2mdc_cfg *
  * @param h Device handle
  * @param cfg Device configuration
  * @return @ref E_IIS2MDC_SUCCESS if configuration was successful, otherwise an error code from @ref E_IIS2MDC_COM_ERR.
-*/
+ */
 iis2mdc_err_t iis2mdc_config(const struct iis2mdc_h *h, const struct iis2mdc_cfg *cfg);
 
 /**
@@ -181,7 +180,7 @@ iis2mdc_err_t iis2mdc_config(const struct iis2mdc_h *h, const struct iis2mdc_cfg
  *  @param h Device handle
  * @param cfg Interrupt configuration
  * @return @ref E_IIS2MDC_SUCCESS if configuration was successful, otherwise an error code from @ref E_IIS2MDC_COM_ERR.
-*/
+ */
 iis2mdc_err_t iis2mdc_cfg_interupt(const struct iis2mdc_h *h, const struct iis2mdc_int_cfg *cfg);
 
 /**
@@ -190,7 +189,7 @@ iis2mdc_err_t iis2mdc_cfg_interupt(const struct iis2mdc_h *h, const struct iis2m
  * @param h Device handle
  * @param cfg Offset configuration
  * @return @ref E_IIS2MDC_SUCCESS if configuration was successful, otherwise an error code from @ref E_IIS2MDC_COM_ERR.
-*/
+ */
 iis2mdc_err_t iis2mdc_cfg_offset(const struct iis2mdc_h *h, const struct iis2mdc_offset_cfg *cfg);
 
 /**
@@ -208,6 +207,6 @@ iis2mdc_err_t iis2mdc_read_mag(const struct iis2mdc_h *h, int16_t *data);
  * @param h Device handle
  * @param temp Pointer to data buffer to store results. 16-bit signed integer is required.
  * @return @ref E_IIS2MDC_SUCCESS if read was successful, otherwise an error code from @ref E_IIS2MDC_COM_ERR.
-*/
+ */
 iis2mdc_err_t iis2mdc_read_temp(const struct iis2mdc_h *h, int16_t *temp);
 #endif // IIS2MDC_H
